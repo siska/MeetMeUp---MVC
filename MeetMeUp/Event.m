@@ -41,7 +41,7 @@
 
         NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:jsonArray.count];
 
-        for (NSDictionary *d in jsonArray)
+        for (NSDictionary *d in jsonArray) //bug - had replaced jsonArray with newArray
         {
             Event *e = [[Event alloc]initWithDictionary:d];
             [newArray addObject:e];
