@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSArray *commentsArray;
 
 + (NSArray *)eventsFromArray:(NSArray *)incomingArray;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/event_comments?&sign=true&photo-host=public&event_id=%@&page=20&key=YOUR_API_KEY_HERE",self.event.eventID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/event_comments?&sign=true&photo-host=public&event_id=%@&page=20&key=5c141e6f197b202950a3f4d15345f26",self.event.eventID]];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
