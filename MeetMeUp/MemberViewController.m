@@ -34,8 +34,6 @@
 
                              self.member = [[Member alloc]initWithDictionary:dict];
                            }];
-
-
 }
 
 - (void)setMember:(Member *)member
