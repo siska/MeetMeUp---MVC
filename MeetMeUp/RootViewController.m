@@ -29,9 +29,17 @@
 
 - (void)performSearchWithKeyword:(NSString *)keyword
 {
-    [Event eventsFromKeyword:keyword completionHandler:^(NSArray *events) {
+    [Event eventsFromKeyword:keyword completionHandler:^(NSArray *events)
+    {
         self.dataArray = events;
     }];
+}
+
+-(void)setDataArray:(NSArray *)dataArray
+{
+    _dataArray = dataArray;
+    [self.tableView reloadData];
+}
 
 
 //    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=5c141e6f197b202950a3f4d15345f26",keyword]];
@@ -50,8 +58,7 @@
 //                               self.dataArray = [Event eventsFromArray:jsonArray];
 //                               [self.tableView reloadData];
 //                           }];
-
-}
+//}
 
 #pragma mark - Tableview Methods
 
