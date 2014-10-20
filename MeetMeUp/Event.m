@@ -29,33 +29,26 @@
     }
     return self;
 }
-
-+ (NSArray *)eventsFromArray: (NSString *)keyword (void (^)(NSArray *))incomingArray
+                            //defines what comes back and what goes in - this void, NSArray stuff is unique - per Don
++ (void)eventsFromKeyword:(NSString *)keyword completionHandler:(void (^)(NSArray *))complete
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=5c141e6f197b202950a3f4d15345f26",keyword]];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    {
+        NSArray *jsonArray = [[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil] objectForKey:@"results"];
 
-                               NSArray *jsonArray = [[NSJSONSerialization JSONObjectWithData:data
-                                                                                     options:NSJSONReadingAllowFragments
-                                                                                       error:nil] objectForKey:@"results"];
+        NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:jsonArray.count];
 
-
-                               self.dataArray = [Event eventsFromArray:jsonArray];
-
-    NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:incomingArray.count];
-    
-    for (NSDictionary *d in incomingArray) {
-        Event *e = [[Event alloc]initWithDictionary:d];
-        [newArray addObject:e];
-        
-    }
-    return newArray;
+        for (NSDictionary *d in newArray)
+        {
+            Event *e = [[Event alloc]initWithDictionary:d];
+            [newArray addObject:e];
+        }
+    complete(newArray); 
+    }];
 }
-
 
 @end

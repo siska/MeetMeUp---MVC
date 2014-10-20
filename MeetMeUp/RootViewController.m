@@ -29,22 +29,30 @@
 
 - (void)performSearchWithKeyword:(NSString *)keyword
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=5c141e6f197b202950a3f4d15345f26",keyword]];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               
-                               NSArray *jsonArray = [[NSJSONSerialization JSONObjectWithData:data
-                                                                                     options:NSJSONReadingAllowFragments
-                                                                                       error:nil] objectForKey:@"results"];
-                               
-                               
-                               self.dataArray = [Event eventsFromArray:jsonArray];
-                               [self.tableView reloadData];
-                           }];
+    [Event ]
+
+    [Superhero retrieveSuperheroesWithCompletion:^(NSArray *superheroes)
+     {
+         self.heroes = superheroes; //step 3
+     }];
+
+
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=5c141e6f197b202950a3f4d15345f26",keyword]];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request
+//                                       queue:[NSOperationQueue mainQueue]
+//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//                               
+//                               NSArray *jsonArray = [[NSJSONSerialization JSONObjectWithData:data
+//                                                                                     options:NSJSONReadingAllowFragments
+//                                                                                       error:nil] objectForKey:@"results"];
+//                               
+//                               
+//                               self.dataArray = [Event eventsFromArray:jsonArray];
+//                               [self.tableView reloadData];
+//                           }];
 
 }
 
