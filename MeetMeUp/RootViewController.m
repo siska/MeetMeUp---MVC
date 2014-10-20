@@ -8,9 +8,9 @@
 
 #import "Event.h"
 #import "EventDetailViewController.h"
-#import "ViewController.h"
+#import "RootViewController.h"
 
-@interface ViewController () <UISearchBarDelegate>
+@interface RootViewController () <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *searchBar;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ViewController
+@implementation RootViewController
             
 - (void)viewDidLoad {
     [super viewDidLoad];
