@@ -118,11 +118,11 @@
 			children = (
 				23D10C1F19BDF342001F060E /* AppDelegate.h */,
 				23D10C2019BDF342001F060E /* AppDelegate.m */,
+				23D10C2519BDF342001F060E /* Main.storyboard */,
 				23D10C2219BDF342001F060E /* ViewController.h */,
 				23D10C2319BDF342001F060E /* ViewController.m */,
 				23D10C3E19BDFF1C001F060E /* EventDetailViewController.h */,
 				23D10C3F19BDFF1C001F060E /* EventDetailViewController.m */,
-				23D10C2519BDF342001F060E /* Main.storyboard */,
 				23D10C5619BE5E51001F060E /* MemberViewController.h */,
 				23D10C5719BE5E51001F060E /* MemberViewController.m */,
 				23D10C4719BE0D7D001F060E /* CommentsTableViewController.h */,
