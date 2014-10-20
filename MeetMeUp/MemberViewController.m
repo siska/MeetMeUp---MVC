@@ -22,18 +22,24 @@
     [super viewDidLoad];
     self.photoImageView.alpha = 0;
 
+    [Member memberInfoFromID:self.memberID completionHandler:^(Member * member)
+    {
+        self.member = member;
+    }];
+//not necessary to work into setter method because no need to reload view
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/member/%@?&sign=true&photo-host=public&page=20&key=5c141e6f197b202950a3f4d15345f26",self.memberID]];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-
-                             self.member = [[Member alloc]initWithDictionary:dict];
-                           }];
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/member/%@?&sign=true&photo-host=public&page=20&key=5c141e6f197b202950a3f4d15345f26",self.memberID]];
+//
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//
+//    [NSURLConnection sendAsynchronousRequest:request
+//                                       queue:[NSOperationQueue mainQueue]
+//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//                               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+//
+//                             self.member = [[Member alloc]initWithDictionary:dict];
+//                           }];
 }
 
 - (void)setMember:(Member *)member

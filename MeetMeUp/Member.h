@@ -20,5 +20,6 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
++ (void)memberInfoFromID:(NSString *)memberID completionHandler:(void (^)(Member *))member;
 
 @end
