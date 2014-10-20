@@ -47,7 +47,7 @@
             Event *e = [[Event alloc]initWithDictionary:d];
             [newArray addObject:e];
         }
-    complete(newArray); 
+    complete(newArray);
     }];
 }
 

@@ -29,12 +29,9 @@
 
 - (void)performSearchWithKeyword:(NSString *)keyword
 {
-    [Event ]
-
-    [Superhero retrieveSuperheroesWithCompletion:^(NSArray *superheroes)
-     {
-         self.heroes = superheroes; //step 3
-     }];
+    [Event eventsFromKeyword:keyword completionHandler:^(NSArray *events) {
+        self.dataArray = events;
+    }];
 
 
 //    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=5c141e6f197b202950a3f4d15345f26",keyword]];
