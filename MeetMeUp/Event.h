@@ -23,7 +23,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (instancetype)initCommentFromEventID:(void (^)(NSString *))memberID;
+- (void)initCommentFromEventID:(NSString *)eventID arrayProvidedBack:(void (^)(NSArray *))complete;
 
 + (void)eventsFromKeyword:(NSString *)keyword completionHandler:(void (^)(NSArray *))complete;
 
