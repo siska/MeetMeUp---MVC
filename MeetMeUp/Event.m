@@ -10,6 +10,7 @@
 
 @implementation Event
 
+#pragma mark - Event Instance Methods
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -29,7 +30,15 @@
     }
     return self;
 }
-                            //defines what comes back and what goes in - this void, NSArray stuff is unique - per Don
+
+- (instancetype)initCommentFromEventID:(void (^)(NSString *))memberID
+{
+
+}
+
+
+#pragma mark - Event Class Methods
+//defines what comes back and what goes in - this void, NSArray stuff is unique - per Don
 + (void)eventsFromKeyword:(NSString *)keyword completionHandler:(void (^)(NSArray *))complete
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=5c141e6f197b202950a3f4d15345f26",keyword]];

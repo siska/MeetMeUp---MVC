@@ -21,8 +21,10 @@
 @property (nonatomic, strong) NSURL *photoURL;
 @property (nonatomic, strong) NSArray *commentsArray;
 
-+ (void)eventsFromKeyword:(NSString *)keyword completionHandler:(void (^)(NSArray *))complete;
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+- (instancetype)initCommentFromEventID:(void (^)(NSString *))memberID;
+
++ (void)eventsFromKeyword:(NSString *)keyword completionHandler:(void (^)(NSArray *))complete;
 
 @end
